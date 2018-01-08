@@ -1,5 +1,5 @@
 <p align='center'>
-'<img src='https://audio-sequence.github.io/disciple.png' width='35%'></p>
+'<img src='https://audio-sequence.github.io/disciple.png' width='40%'></p>
 
 # Disciple (Beta)
 
