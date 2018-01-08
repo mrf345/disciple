@@ -10,7 +10,6 @@
 ## [Live Demo][20595752]
 
   [20595752]: https://audio-sequence.github.io/disciple.html "Live demo"
-
 <p align='center'><img src='https://audio-sequence.github.io/disciple.gif' alt='Demo GIF'></p>
 
 ## Advantages:
@@ -20,8 +19,8 @@
 
 ## Disadvantages:
 - The script most be loaded in all routes of the site, to work properly.
-- Clearing the localStorage will result in permanent loss of forms data
-- Going out of the site and coming back to it work-around, is still shaky.
+- Clearing the localStorage `localStorage.clear()` causes permanent loss of the stored data
+- Going out of the site and coming back to it work-around, is still a shaky solution.
 
 ## Setup:
 ~~~html
