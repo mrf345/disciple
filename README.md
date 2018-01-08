@@ -1,13 +1,17 @@
 <p align='center'>
-'<img src='https://audio-sequence.github.io/disciple.png' width='40%'></p>
+'<img alt='Logo' src='https://audio-sequence.github.io/disciple.png' width='40%'></p>
 
 # Disciple (Beta)
 
-### jQuery based script to deal with dirty forms. But with a twist, instead of alerting the user before he leaves, Disciple does that after the fact by storing form values into a localStorage and present the options to restore now, later or delete to the user.
+### [jQuery][75752037] based script to deal with dirty forms. But with a twist, instead of alerting the user before he leaves, Disciple does that after the fact by storing form values into the localStorage and then present the options to restore now, later or delete to the user.
+
+  [75752037]: https://jquery.com "jQuery website"
 
 ## [Live Demo][20595752]
 
   [20595752]: https://audio-sequence.github.io/disciple.html "Live demo"
+
+<p align='center'><img src='https://audio-sequence.github.io/disciple.gif' alt='Demo GIF'></p>
 
 ## Advantages:
 - Customize-able confirm and alert messages.
