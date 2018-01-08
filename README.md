@@ -1,9 +1,12 @@
-<center> <img src='https://audio-sequence.github.io/disciple.png' width='35%'> </center>
+<img src='https://audio-sequence.github.io/disciple.png' style='width: 35%;margin-left: 35%;'>
+
 # Disciple (Beta)
+
 ### jQuery based script to deal with dirty forms. But with a twist, instead of alerting the user before he leaves, Disciple does that after the fact by storing form values into a localStorage and present the options to restore now, later or delete to the user.
 
-## Live Demo
+## [Live Demo][20595752]
 
+  [20595752]: https://audio-sequence.github.io/disciple.html "Live demo"
 
 ## Advantages:
 - Customize-able confirm and alert messages.
@@ -64,7 +67,7 @@ options = {
 ~~~
 
 ## Useful functions:
-##### Use the instance `const monitor = disciple()` we created in [Setup](#Setup) with any of the following functions. `monitor.someFunction()`
+##### Use the instance `const monitor = disciple()` we created in [Setup](#setup) with any of the following functions. `monitor.someFunction()`
 
 ~~~javascript
 this.pause = function pause () {
