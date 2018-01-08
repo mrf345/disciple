@@ -36,7 +36,7 @@
   </script>
 </head>
 <body>
-  <form class='.myform'>
+  <form class='myform'>
     <label>Name</label>
     <input type='text' />
   </form>
