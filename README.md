@@ -1,5 +1,5 @@
 <p align='center'>
-'<img alt='Logo' src='https://audio-sequence.github.io/disciple.png' width='40%' /></p>
+'<img alt='Logo' src='https://audio-sequence.github.io/disciple.png' width='40%'></p>
 
 # Disciple (Beta)
 
@@ -10,8 +10,9 @@
 ## [Live Demo][20595752]
 
   [20595752]: https://audio-sequence.github.io/disciple.html "Live demo"
-
-![Live Demo GIF](https://audio-sequence.github.io/audio_sequence.gif)
+<p align='center'>
+![GIF Demo](https://audio-sequence.github.io/disciple.gif)
+</p>
 
 ## Advantages:
 - Customize-able confirm and alert messages.
