@@ -11,7 +11,7 @@
 
   [20595752]: https://audio-sequence.github.io/disciple.html "Live demo"
 
-![Live Demo GIF](https://audio-sequence.github.io/disciple.gif)
+![Live Demo GIF](https://audio-sequence.github.io/audio_sequence.gif)
 
 ## Advantages:
 - Customize-able confirm and alert messages.
