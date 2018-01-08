@@ -11,7 +11,7 @@
 
   [20595752]: https://audio-sequence.github.io/disciple.html "Live demo"
 <p align='center'>
-<img src='https://audio-sequence.github.io/disciple.gif' alt='GIF Demo'>
+ <img src='https://audio-sequence.github.io/disciple.gif' alt='GIF Demo'>
 </p>
 
 ## Advantages:
