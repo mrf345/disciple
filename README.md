@@ -20,9 +20,9 @@
 - Fail safe, in case the user went out of the site.
 
 ## Disadvantages:
-- The script most be loaded in all routes of the site, to work properly.
+- The script must be loaded in all routes of the site, to work properly.
 - Clearing the localStorage `localStorage.clear()` causes permanent loss of the stored data
-- Going out of the site and coming back to it work-around, is still a shaky solution.
+- Going out of the site and coming back to it work-around, is still shaky solution.
 
 ## Setup:
 ~~~html
