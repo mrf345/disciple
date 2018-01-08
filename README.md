@@ -1,4 +1,4 @@
-<img src='https://audio-sequence.github.io/disciple.png' style='width: 35%;margin-left: 35%;'>
+<img src='https://audio-sequence.github.io/disciple.png' width='35%' style='margin-left: 35%;'>
 
 # Disciple (Beta)
 
