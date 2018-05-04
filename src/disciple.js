@@ -1,30 +1,22 @@
 /* global document, window, $, localStorage */
 /*
-
-Script : disciple 0.1 beta
-Author : Mohamed Feddad
-Date : 2018/1/5
-Source : https://github.com/mrf345/disciple
-License: MPL 2.0
-Dependencies: Bootstrap ver. * > 3, jQuery
-
+  Dependencies: Bootstrap ver. * > 3, jQuery
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
-
  */
 
-const disciple = function (options = {}) {
-    const checkType = function checkType (type, args) {
+var disciple = function (options = {}) {
+    var checkType = function checkType (type, args) {
        // checking the type of each variable in the passed array
-      for (let a in args) {
+      for (var a in args) {
         if (typeof args[a] !== type) return false
       }
       return true
     }
-		const escapeReady = function (todo) {
+		var escapeReady = function (todo) {
 			// to add function to document ready event with escape
-			if (document.readyState === 'complete') todo()
+			if (document.readyState === 'compvare') todo()
 			else $(document).ready(todo)
 		}
 
@@ -64,7 +56,7 @@ const disciple = function (options = {}) {
       msgbox_background: options.msgbox_background || 'rgba(0,0,0,0.8)' // Background color for messages div
     }
   
-    const defaults = {
+    var defaults = {
       elements: ['input', 'select', 'textarea', 'fieldset', 'datalist'], // form elements that gets checked
       separator: '~%^disciple^%~', // special string to separate form values when stored
       storeForm: [], // to store the form upon loading
@@ -110,7 +102,7 @@ const disciple = function (options = {}) {
         options.forget_css,
         options.restoring_css
       ])) throw new TypeError('disciple(options) _css takes a CSS object')
-      let ds; for (let d in ds = [
+      var ds; for (var d in ds = [
         options.msg_classes,
         options.restore_classes,
         options.later_classes,
@@ -143,11 +135,11 @@ const disciple = function (options = {}) {
 			})
     }
   
-    const witness = function witness () {
+    var witness = function witness () {
 			// watch over and store identified form, if exists
       if ($(options.identifier).length >= 1) {
 				escapeReady(function () {
-					for (let e in defaults.elements) {
+					for (var e in defaults.elements) {
 						$(options.identifier).find(defaults.elements[e]).each(function () {
 							defaults.storeForm.push($(this).val())
 						})
@@ -158,7 +150,7 @@ const disciple = function (options = {}) {
 				})
         $(window).on('unload', function () {
           if (!defaults.submitted) {
-            for (let e in defaults.elements) {
+            for (var e in defaults.elements) {
               $(options.identifier).find(defaults.elements[e]).each(function () {
                 defaults.leaveForm.push($(this).val())
               })
@@ -173,7 +165,7 @@ const disciple = function (options = {}) {
       }
     }
   
-    const messenger = function messenger (clearing = false) {
+    var messenger = function messenger (clearing = false) {
       // display confirm message, with options and click events
       $('body').append(
         $('<div>').attr('id', 'messenger').css(defaults.transparent
@@ -228,12 +220,12 @@ const disciple = function (options = {}) {
       }, 1000)
     }
   
-    const reincarnate = function reincarnate () {
+    var reincarnate = function reincarnate () {
       // to restore the values of saved form
       localStorage.disciple = 'no'
       this.judgement() // load the while restoring message
-      const data = localStorage[window.location.href].split(defaults.separator)
-      for (let e in defaults.elements) {
+      var data = localStorage[window.location.href].split(defaults.separator)
+      for (var e in defaults.elements) {
         $(options.identifier).find(defaults.elements[e]).each(function (index, value) {
           $(this).val(data.shift())
         })
@@ -243,7 +235,7 @@ const disciple = function (options = {}) {
       localStorage.togo = false
     }
   
-    const postpone = function postpone (clearing = false) {
+    var postpone = function postpone (clearing = false) {
       // to store for later. Just by removing the confirm message
       // and upon loading the stored later page automatically will be restored
       localStorage.disciple = 'no'
@@ -255,7 +247,7 @@ const disciple = function (options = {}) {
       }, 1200)
     }
   
-    const forgive = function forgive (clearing = false) {
+    var forgive = function forgive (clearing = false) {
       // to don't store with localStorage cleanup
       localStorage.removeItem(localStorage.togo) // removing the stored form with its href
       localStorage.disciple = 'no'
