@@ -6,7 +6,9 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-var disciple = function (options = {}) {
+ // TODO: add option to disable if went to another website reminder
+
+var disciple = function (options = {}) {    
     var checkType = function checkType (type, args) {
        // checking the type of each variable in the passed array
       for (var a in args) {
@@ -16,7 +18,7 @@ var disciple = function (options = {}) {
     }
 		var escapeReady = function (todo) {
 			// to add function to document ready event with escape
-			if (document.readyState === 'compvare') todo()
+			if (document.readyState === 'complete') todo()
 			else $(document).ready(todo)
 		}
 
@@ -56,7 +58,7 @@ var disciple = function (options = {}) {
       msgbox_background: options.msgbox_background || 'rgba(0,0,0,0.8)' // Background color for messages div
     }
   
-    var defaults = {
+    defaultsDis = {
       elements: ['input', 'select', 'textarea', 'fieldset', 'datalist'], // form elements that gets checked
       separator: '~%^disciple^%~', // special string to separate form values when stored
       storeForm: [], // to store the form upon loading
@@ -116,14 +118,14 @@ var disciple = function (options = {}) {
 				if (localStorage.stopped !== 'yes') {
 						if (localStorage.hasOwnProperty(window.location.href) && localStorage.disciple === 'yes') {
 								if (window.location.href !== localStorage.togo) messenger(true)
-								else defaults.cleared = true
-								defaults.cLoop = setInterval(function () {
+								else defaultsDis.cleared = true
+								defaultsDis.cLoop = setInterval(function () {
 										// in case of messenger and reincarnate to restore we will wait for messenger to be done first
-										if (defaults.cleared) {
+										if (defaultsDis.cleared) {
 												reincarnate()
-												defaults.cleared = false
+												defaultsDis.cleared = false
 												witness() // to start storing form values
-												clearInterval(defaults.cLoop)
+												clearInterval(defaultsDis.cLoop)
 										}
 								}, 200)
 						} else {
@@ -139,26 +141,26 @@ var disciple = function (options = {}) {
 			// watch over and store identified form, if exists
       if ($(options.identifier).length >= 1) {
 				escapeReady(function () {
-					for (var e in defaults.elements) {
-						$(options.identifier).find(defaults.elements[e]).each(function () {
-							defaults.storeForm.push($(this).val())
+					for (var e in defaultsDis.elements) {
+						$(options.identifier).find(defaultsDis.elements[e]).each(function () {
+							defaultsDis.storeForm.push($(this).val())
 						})
 					}
 					$(options.identifier).submit(function () {
-						defaults.submitted = true
+						defaultsDis.submitted = true
 					})
 				})
         $(window).on('unload', function () {
-          if (!defaults.submitted) {
-            for (var e in defaults.elements) {
-              $(options.identifier).find(defaults.elements[e]).each(function () {
-                defaults.leaveForm.push($(this).val())
+          if (!defaultsDis.submitted) {
+            for (var e in defaultsDis.elements) {
+              $(options.identifier).find(defaultsDis.elements[e]).each(function () {
+                defaultsDis.leaveForm.push($(this).val())
               })
             }
-            if (defaults.storeForm.join() !== defaults.leaveForm.join()) {
+            if (defaultsDis.storeForm.join() !== defaultsDis.leaveForm.join()) {
               localStorage.disciple = 'yes'
               localStorage.togo = window.location.href
-              localStorage[window.location.href] = defaults.leaveForm.join(defaults.separator)
+              localStorage[window.location.href] = defaultsDis.leaveForm.join(defaultsDis.separator)
             } else localStorage.disciple = 'no'
           }
         })
@@ -168,7 +170,7 @@ var disciple = function (options = {}) {
     var messenger = function messenger (clearing = false) {
       // display confirm message, with options and click events
       $('body').append(
-        $('<div>').attr('id', 'messenger').css(defaults.transparent
+        $('<div>').attr('id', 'messenger').css(defaultsDis.transparent
         ).append($('<div>').addClass('col-xs-12 text-center').append(
           $('<h2>').addClass(options.msg_classes.join(' ')).css(options.msg_css).text(options.msg_text)
         ).append(
@@ -206,7 +208,7 @@ var disciple = function (options = {}) {
     this.judgement = function judgement () {
       // display message while restoring old form data
       $('body').append(
-        $('<div>').attr('id', 'judgement').css(defaults.transparent
+        $('<div>').attr('id', 'judgement').css(defaultsDis.transparent
         ).append($('<div>').addClass('col-xs-12 text-center').append(
           $('<h1>').addClass(options.restoring_classes.join(' ')).css(
             options.restoring_css).text(options.restoring_text)
@@ -224,9 +226,9 @@ var disciple = function (options = {}) {
       // to restore the values of saved form
       localStorage.disciple = 'no'
       this.judgement() // load the while restoring message
-      var data = localStorage[window.location.href].split(defaults.separator)
-      for (var e in defaults.elements) {
-        $(options.identifier).find(defaults.elements[e]).each(function (index, value) {
+      var data = localStorage[window.location.href].split(defaultsDis.separator)
+      for (var e in defaultsDis.elements) {
+        $(options.identifier).find(defaultsDis.elements[e]).each(function (index, value) {
           $(this).val(data.shift())
         })
       }
@@ -243,7 +245,7 @@ var disciple = function (options = {}) {
       $('#messenger').css({'opacity': '0'})
       setTimeout(function () {
         $('#messenger').remove()
-        if (clearing) defaults.cleared = true
+        if (clearing) defaultsDis.cleared = true
       }, 1200)
     }
   
@@ -255,7 +257,7 @@ var disciple = function (options = {}) {
       $('#messenger').css({'opacity': '0'})
       setTimeout(function () {
         $('#messenger').remove()
-        if (clearing) defaults.cleared = true
+        if (clearing) defaultsDis.cleared = true
       }, 1200)
     }
   
@@ -277,6 +279,7 @@ var disciple = function (options = {}) {
     }
   
     this.__init__()
+    this.defaultsDis = defaultsDis
     return this
   }
   
